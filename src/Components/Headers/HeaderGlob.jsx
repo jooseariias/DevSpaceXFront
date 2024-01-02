@@ -5,8 +5,10 @@ import { User } from "../../hook/UserData"; /// ===> traigo la data del usuario
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import Search from "../Search/Search";
+import { Link } from "react-router-dom";
 
-export default function HeaderGlob() {
+
+export default function HeaderGlob({ onSearch }) {
   const { userData } = User();
   const redirectToHome = useNavigate();
   const [navbar, setNavbar] = useState(false);
@@ -25,13 +27,13 @@ export default function HeaderGlob() {
               <div className="flex items-center justify-between ">
                 <div className="flex ">
                   <div>
-                    <h1 className="w-[340px] h-[50px] text-black text-[40px] font-normal font-['Lexend'] leading-snug">
+                   <Link to={"/Home"}> <h1 className="w-[340px] h-[50px] text-black text-[40px] font-normal font-['Lexend'] leading-snug">
                       DevSpaceX
-                    </h1>
+                    </h1></Link>
                   </div>
                 </div>
                 <div className=" hidden md:block">
-                  <Search />
+                  <Search onSearch={onSearch} />
                 </div>
 
                 <div className="md:hidden ">

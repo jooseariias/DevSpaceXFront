@@ -10,7 +10,6 @@ export const User = () => {
 
   useEffect(() => {
     const userJSON = Cookies.get("user");
-    console.log(userJSON)
 
     if (userJSON) {
       const user = JSON.parse(userJSON);

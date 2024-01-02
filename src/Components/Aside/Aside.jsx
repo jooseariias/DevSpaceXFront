@@ -1,8 +1,10 @@
+import { useCategoryFetch } from "../../hook/category/GetCategory";
 import house from "../../assets/aside/casita.svg";
 import preg from "../../assets/aside/preguntas.svg";
 import users from "../../assets/aside/usuarios.svg";
 
 export default function Aside() {
+  const { Filter } = useCategoryFetch();
   return (
     <div>
       <section className="bg-white  min-h-screen ">
@@ -35,50 +37,19 @@ export default function Aside() {
             </h4>
             <section className="flex justify-center">
               <div className="flex flex-col  justify-center  gap-2 mt-5">
-                <div className="flex gap-2  items-center">
-                  <input
-                    className="size-[16px]"
-                    type="checkbox"
-                    name=""
-                    id=""
-                  />
-                  <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
-                    Javascript
-                  </p>
-                </div>
-                <div className="flex gap-2  items-center">
-                  <input
-                    className="size-[16px]"
-                    type="checkbox"
-                    name=""
-                    id=""
-                  />
-                  <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
-                    c++
-                  </p>
-                </div>
-                <div className="flex gap-2  items-center">
-                  <input
-                    className="size-[16px]"
-                    type="checkbox"
-                    name=""
-                    id=""
-                  />
-                  <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
-                    Php
-                  </p>
-                </div>
-                <div className="flex gap-2  items-center">
-                  <input
-                    className="size-[16px]"
-                    type="checkbox"
-                    name=""
-                    id=""
-                  />
-                  <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
-                    Ruby
-                  </p>
-                </div>
+                {Filter?.map((category) => (
+                  <div key={category.id} className="flex gap-2  items-center">
+                    <input
+                      className="size-[16px]"
+                      type="checkbox"
+                      name={category.Categorie}
+                      id={category.id}
+                    />
+                    <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
+                      {category.Categorie}
+                    </p>
+                  </div>
+                ))}
               </div>
             </section>
           </section>
