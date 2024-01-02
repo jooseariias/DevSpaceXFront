@@ -15,7 +15,7 @@ export default function Search({ onSearch }) {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button className="h-[38px] bg-neutral-300 rounded-r-[71px] px-3   hover:bg-slate-200 " onClick={handleSearch}>Buscar</button>
+      <button className="h-[38px] bg-neutral-200 rounded-r-[71px] px-3   hover:bg-slate-200 " onClick={handleSearch}>Buscar</button>
     </div>
   );
 }
