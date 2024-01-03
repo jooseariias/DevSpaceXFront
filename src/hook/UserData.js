@@ -14,6 +14,7 @@ export const User = () => {
     if (userJSON) {
       const user = JSON.parse(userJSON);
       setUserData({
+        id:user.id,
         Nombre: user.NombreUsuario,
         Description: user.Description,
         Imagen: user.imagen,

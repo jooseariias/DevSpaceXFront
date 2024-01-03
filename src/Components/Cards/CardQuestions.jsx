@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function CardQuestions({ question }) {
   const truncateText = (text, maxLength) => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
@@ -17,9 +19,12 @@ export default function CardQuestions({ question }) {
         </div>
         <div className="border-[1px] h-[150px] mt-4"></div>
         <div className="flex flex-col  justify-around">
-          <h1 className="pl-10 text-sky-500 text-2xl font-normal font-['Lexend'] leading-snug">
-            {question.Title}
-          </h1>
+          <Link to={`/Questions/${question.id}`}>
+            {" "}
+            <h1 className="pl-10 text-sky-500 text-2xl font-normal font-['Lexend'] leading-snug">
+              {question.Title}
+            </h1>
+          </Link>
           <article className="pl-10  text-black text-xl font-normal font-['Lexend'] leading-snug">
             {truncateText(question.Body, 40)}
           </article>
