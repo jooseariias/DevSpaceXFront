@@ -86,11 +86,13 @@ export default function HeaderGlob({ onSearch }) {
                 <nav className="mb-5 flex flex-col   md:mb-0 md:flex md:flex-row md:items-center md:justify-center md:gap-8">
                   <div className="flex justify-center items-center flex-col md:flex-row gap-4">
                     <img className="size-10" src={notify} alt="" />
+                    <Link to={"/Profile"}>
                     <img
                       className="w-[45px] rounded-[50px]"
                       src={userData.Imagen}
                       alt="Usuario"
                     />
+                    </Link>
                     <img
                       className="size-5  cursor-pointer"
                       onClick={handleLogout}

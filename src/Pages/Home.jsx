@@ -70,7 +70,7 @@ export default function Home() {
           ) : (
             <div>
               <CreateP />
-              <FilterQuestions />
+              {/* <FilterQuestions /> */}
               <div>
                 {/* <h2 className="font-semibold text-xl mt-2 ml-4">
                   Resultados de la búsqueda por categoría:
@@ -80,16 +80,16 @@ export default function Home() {
                     <CardQuestions key={question.id} question={question} />
                   ))}
                 </div>
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center mb-10 mt-4">
                   {Array.from({ length: totalPages }, (_, index) => (
                     <button
                       key={index + 1}
                       onClick={() => handlePageChange(index + 1)}
                       className={`mx-2 ${
-                        currentPage === index + 1 ? "font-bold" : ""
+                        currentPage === index + 1 ? "font-bold  text-slate-400" : ""
                       }`}
                     >
-                      {index + 1}
+                     <div className="bg-white px-3 rounded-lg font-semibold">{index + 1}</div> 
                     </button>
                   ))}
                 </div>
