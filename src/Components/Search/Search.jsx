@@ -8,9 +8,9 @@ export default function Search({ onSearch }) {
   };
 
   return (
-    <div className="flex">
+    <div className="flex  w-[100%] ">
       <input
-        className="hidden md:block w-[600px] pl-5 h-[38px] bg-neutral-300 rounded-l-[71px] outline-none  "
+        className="hidden md:block w-full   pl-5 h-[38px] bg-neutral-300 rounded-l-[71px] outline-none  "
         placeholder="Buscar"
         value={query}
         onChange={(e) => setQuery(e.target.value)}

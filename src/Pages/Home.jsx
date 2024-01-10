@@ -4,9 +4,10 @@ import CreateP from "../Components/HeaderCreatePre/CreateP";
 import HeaderGlob from "../Components/Headers/HeaderGlob";
 import CardQuestions from "../Components/Cards/CardQuestions";
 import { useSearch } from "../hook/Home/HookSearch";
-import FilterQuestions from "../Components/FilterCuestion/FilterQuestions";
+import Footer from "../Components/Footer/Footer";
 
 export default function Home() {
+
   const { searchResults, handleSearch } = useSearch();
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -41,7 +42,7 @@ export default function Home() {
 
   const handleCategoryFilterChange = (category) => {
     setSelectedCategory(category);
-    setCurrentPage(1); // Reiniciar a la primera página cuando se cambia la categoría
+    setCurrentPage(1); 
   };
 
   const handlePageChange = (newPage) => {
@@ -67,37 +68,43 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          ) : (
+          ) : questions.length > 0 ? (
             <div>
               <CreateP />
-              {/* <FilterQuestions /> */}
-              <div>
-                {/* <h2 className="font-semibold text-xl mt-2 ml-4">
-                  Resultados de la búsqueda por categoría:
-                </h2> */}
-                <div className="flex flex-col mt-4 justify-center items-center">
-                  {questions.map((question) => (
-                    <CardQuestions key={question.id} question={question} />
-                  ))}
-                </div>
-                <div className="flex justify-center mb-10 mt-4">
-                  {Array.from({ length: totalPages }, (_, index) => (
-                    <button
-                      key={index + 1}
-                      onClick={() => handlePageChange(index + 1)}
-                      className={`mx-2 ${
-                        currentPage === index + 1 ? "font-bold  text-slate-400" : ""
-                      }`}
-                    >
-                     <div className="bg-white px-3 rounded-lg font-semibold">{index + 1}</div> 
-                    </button>
-                  ))}
-                </div>
+              <div className="flex flex-col mt-4 justify-center items-center">
+                {questions.map((question) => (
+                  <CardQuestions key={question.id} question={question} />
+                ))}
               </div>
+              <div className="flex justify-center mb-10 mt-4">
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <button
+                    key={index + 1}
+                    onClick={() => handlePageChange(index + 1)}
+                    className={`mx-2 ${
+                      currentPage === index + 1
+                        ? "font-bold  text-slate-400"
+                        : ""
+                    }`}
+                  >
+                    <div className="bg-white px-3 rounded-lg font-semibold">
+                      {index + 1}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="flex flex-col ">
+              <CreateP />
+              <p className="text-lg font-semibold mt-10 ml-10">
+                No se encontraron preguntas.
+              </p>
             </div>
           )}
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

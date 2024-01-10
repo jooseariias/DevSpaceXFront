@@ -4,7 +4,7 @@ export default function CreateAnswe({ questionId, idUser }) {
 
   const [answerData, setAnswerData] = useState({
     Body: "",
-    IdUser: idUser,
+    IdUser: 1,
     QuestionId: questionId,
   });
 

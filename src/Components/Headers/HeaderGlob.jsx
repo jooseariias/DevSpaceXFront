@@ -32,7 +32,7 @@ export default function HeaderGlob({ onSearch }) {
                     </h1></Link>
                   </div>
                 </div>
-                <div className=" hidden md:block">
+                <div className="  lg:w-[640px]  md:w-[300px]  hidden md:block">
                   <Search onSearch={onSearch} />
                 </div>
 

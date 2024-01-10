@@ -20,7 +20,6 @@ export const useGoogleAuth = () => {
 
       if (response) {
         const dataUser = response.data.user;
-        console.log(dataUser);
         const userJSON = JSON.stringify(dataUser);
         Cookies.set("user", userJSON, { expires: 7 });
         redirectToHome("/Home");

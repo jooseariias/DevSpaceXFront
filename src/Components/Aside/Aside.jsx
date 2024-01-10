@@ -1,4 +1,6 @@
 import { useCategoryFetch } from "../../hook/category/GetCategory";
+import { Link } from "react-router-dom";
+
 import house from "../../assets/aside/casita.svg";
 import preg from "../../assets/aside/preguntas.svg";
 import users from "../../assets/aside/usuarios.svg";
@@ -17,24 +19,30 @@ export default function Aside({ onCategoryFilterChange }) {
         <main className=" ">
           <section className="flex justify-center">
             <section className="flex flex-col  items-start pt-10 gap-3">
-              <div className="flex items-center gap-3">
-                <img className="size-[25px]" src={house} alt="hause" />
-                <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
-                  Inicio
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <img className="size-[25px]" src={preg} alt="hause" />
-                <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
-                  Mis Preguntas
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <img className="size-[25px]" src={users} alt="hause" />
-                <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
-                  Usuarios
-                </p>
-              </div>
+              <Link to={"/Home"}>
+                <div className="flex items-center gap-3">
+                  <img className="size-[25px]" src={house} alt="hause" />
+                  <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
+                    Inicio
+                  </p>
+                </div>
+              </Link>
+              <Link to={"/Profile"}>
+                <div className="flex items-center gap-3">
+                  <img className="size-[25px]" src={preg} alt="hause" />
+                  <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
+                    Mis Preguntas
+                  </p>
+                </div>
+              </Link>
+              <Link to={"/Users"}>
+                <div className="flex items-center gap-3">
+                  <img className="size-[25px]" src={users} alt="hause" />
+                  <p className="text-black text-xl font-normal font-['Lexend'] leading-snug">
+                    Usuarios
+                  </p>
+                </div>
+              </Link>
             </section>
           </section>
           <section className="mt-10">

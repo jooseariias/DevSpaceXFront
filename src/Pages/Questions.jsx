@@ -6,15 +6,15 @@ import { useState } from "react";
 
 export default function Questions() {
   const { userData } = User();
-  console.log(userData)
+  
   const { Filter } = useCategoryFetch();
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [questionTitle, setQuestionTitle] = useState("");
   const [questionBody, setQuestionBody] = useState("");
 
-  console.log(questionTitle,"titulo")
-  console.log(questionBody,"body")
+
+
   const handleCategoryChange = (categoryValue) => {
     setSelectedCategory(categoryValue);
   };
