@@ -3,17 +3,16 @@ import Aside from "../Components/Aside/Aside";
 import { useCategoryFetch } from "../hook/category/GetCategory";
 import { User } from "../hook/UserData";
 import { useState } from "react";
+import FormQuill from "../Components/FormQuill/FormQuill";
 
 export default function Questions() {
   const { userData } = User();
-  
+
   const { Filter } = useCategoryFetch();
 
   const [selectedCategory, setSelectedCategory] = useState("");
   const [questionTitle, setQuestionTitle] = useState("");
   const [questionBody, setQuestionBody] = useState("");
-
-
 
   const handleCategoryChange = (categoryValue) => {
     setSelectedCategory(categoryValue);
@@ -31,7 +30,7 @@ export default function Questions() {
         body: JSON.stringify({
           Title: questionTitle,
           Body: questionBody,
-          IdUser: userData.id, // Assuming you have the user ID in userData
+          IdUser: userData.id,
           IdCategories: selectedCategory,
         }),
       });
@@ -40,14 +39,11 @@ export default function Questions() {
 
       if (response.ok) {
         console.log("Question created successfully:", data.question);
-        // Add any additional logic or redirect to another page if needed
       } else {
         console.error("Question creation failed:", data.message);
-        // Handle the error appropriately (e.g., show an error message to the user)
       }
     } catch (error) {
       console.error("An unexpected error occurred:", error);
-      // Handle the error appropriately (e.g., show an error message to the user)
     }
   };
 
@@ -62,7 +58,7 @@ export default function Questions() {
           <article className="w-full h-full">
             <section className="flex justify-center flex-col items-center">
               <form
-                className="w-[70%] h-[550px] mt-8 bg-white"
+                className="w-[70%] h-[650px] mt-8 bg-white"
                 onSubmit={handleSubmit}
               >
                 <h3 className="text-[30px] font-normal mt-5 ml-8 font-['Lexend'] leading-snug">
@@ -83,15 +79,15 @@ export default function Questions() {
                   <p className="text-[20px] font-normal ml-8 mt-3 font-['Lexend']">
                     Cuerpo
                   </p>
-                  <textarea
-                    className="w-[90%] ml-8 h-[200px] bg-slate-100"
-                    type="text"
-                    value={questionBody}
-                    onChange={(e) => setQuestionBody(e.target.value)}
-                  />
+                  <div className="px-8">
+                    <FormQuill
+                      value={questionBody}
+                      onChange={setQuestionBody}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[20px] ml-8 font-normal font-['Lexend'] ">
+                <div className="mt-16">
+                  <p className="text-[20px]  ml-8 font-normal font-['Lexend'] ">
                     Categoria
                   </p>
                   <section className="">

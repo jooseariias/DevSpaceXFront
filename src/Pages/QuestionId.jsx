@@ -1,15 +1,15 @@
 import Aside from "../Components/Aside/Aside";
 import HeaderGlob from "../Components/Headers/HeaderGlob";
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CreateAnswe from "../Components/CreateAnswer/CreateAnswe";
 import { User } from "../hook/UserData";
 
 export default function QuestionId() {
-
-  const {userData} = User();
+  const { userData } = User();
 
   const [question, setQuestion] = useState([]);
+  console.log(question);
   const { id } = useParams();
 
   useEffect(() => {
@@ -38,11 +38,12 @@ export default function QuestionId() {
                 <p>{q.question.createdAt}</p>
               </div>
               <div className="border-t border-gray-300 mt-4"></div>
-              <div className="flex justify-center mt-6">
+              {/* <div className="flex justify-center mt-6">
                 <pre className="px-10 py-6 bg-gray-200 rounded-lg w-[70%]">
                   {q.question.Body}
                 </pre>
-              </div>
+              </div> */}
+              <div className=" bg-gray-400" dangerouslySetInnerHTML={{ __html: q.question.Body }}></div>
               <h2 className="text-xl mt-16 font-semibold">Respuestas</h2>
               <div className="border-t border-gray-300 mt-4"></div>
               {q.question.Answers.map((answer) => (
